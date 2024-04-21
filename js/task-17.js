@@ -10,16 +10,24 @@ const tweets = [
   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
 ];
 
+// const newArr = arr => {
+//     const resultArr = arr.flatMap(item => item.tags);
+//     const finalArr = resultArr.reduce((acc, item) => {
+//         return {
+//             ...acc,
+//             [item]: acc[item] ? acc[item]+1 : 1
+//         }
+//     }, {})
+//     console.log(finalArr);
+//     }
+
+
+// newArr(tweets);
+
 const newArr = arr => {
-    const resultArr = arr.flatMap(item => item.tags);
-    const finalArr = resultArr.reduce((acc, item) => {
-        return {
-            ...acc,
-            [item]: acc[item] ? acc[item]+1 : 1
-        }
-    }, {})
-    console.log(finalArr);
-    }
+    return arr
+        .flatMap(item => item.tags)
+        .reduce((acc, item) => ({...acc, [item]: acc[item] ? acc[item]+1 : 1}), {})
+}
 
-
-newArr(tweets);
+console.log(newArr(tweets));
