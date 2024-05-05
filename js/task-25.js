@@ -11,8 +11,8 @@ const outCircle = document.querySelector(".outerCircle");
 
 outCircle.addEventListener("click", () => {
     if (outCircle.style.position === "absolute") {
-        outCircle.style.position = "static";
         window.removeEventListener("mousemove", mouseMove);
+        outCircle.style.position = "fixed";
         return
     }
     outCircle.style.position = "absolute";
